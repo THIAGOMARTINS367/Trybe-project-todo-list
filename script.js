@@ -4,10 +4,11 @@ let toDoList = document.querySelector('#lista-tarefas');
 let buttonClearAll = document.querySelector('#apaga-tudo');
 let RemoveCompletedItems = document.querySelector('#remover-finalizados');
 let buttonSaveList = document.querySelector('#salvar-tarefas');
+let buttonMoveTop = document.querySelector('#mover-cima');
+let buttonMoveBottom = document.querySelector('#mover-baixo');
 
 window.onload = function() {
   let quantityItems = parseInt(localStorage.getItem('quantityItems'));
-  console.log(quantityItems)
   if (quantityItems > 0) {
     for (let index = 1; index < quantityItems + 1; index++) {
       toDoList.innerHTML += localStorage.getItem(String(index));
@@ -102,12 +103,133 @@ function saveList() {
     itemCount += 1;
     let textContents = iterator.outerHTML;
     localStorage.setItem(String(itemCount), textContents)
-    console.log(textContents);
     
   }
 
   localStorage.setItem('quantityItems', itemCount);
   
+}
+
+function moveItemTop() {
+  let listItems = document.querySelectorAll('.li');
+  let indexSelected = 0;
+  let array2 = [];
+
+  for (const key in listItems) {
+    array2 = [];
+    let a = listItems[key].classList;
+    let string = '';
+    for (const iterator of String(a)) {
+      if (iterator === ' ') {
+        array2.push(string);
+        string = '';
+
+      } else {
+        string += iterator;
+
+      }
+
+    }
+    array2.push(string);
+
+    for (const iterator of array2) {
+      if (iterator === 'selected') {
+        indexSelected = key;
+
+      }
+
+    }
+
+  }
+
+  let array = [];
+  if (indexSelected === 0) {
+    
+  } else {
+    for (let index = 0; index < listItems.length; index++) {
+      if (index === indexSelected - 1) {
+        array.push(listItems[index + 1].outerHTML)
+        array.push(listItems[index].outerHTML)
+        index += 1;
+      } else {
+        array.push(listItems[index].outerHTML)
+      }
+      
+    }
+    clearList()
+
+    for (const iterator of array) {
+      toDoList.innerHTML += iterator;
+
+    }
+
+  }
+
+}
+
+function moveItemBottom() {
+  let listItems = document.querySelectorAll('.li');
+  let checkSelected = false;
+  let indexSelected = 0;
+  let array2 = [];
+
+  for (const key in listItems) {
+    array2 = [];
+    let a = listItems[key].classList;
+    let string = '';
+    for (const iterator of String(a)) {
+      if (iterator === ' ') {
+        array2.push(string);
+        string = '';
+
+      } else {
+        string += iterator;
+
+      }
+
+    }
+    array2.push(string);
+
+    for (const iterator of array2) {
+      if (iterator === 'selected') {
+        indexSelected = key;
+        checkSelected = true;
+        console.log('passsou')
+
+      };
+
+    }
+
+  }
+  indexSelected = parseInt(indexSelected);
+
+  console.log('indexSelected: ' + indexSelected);
+
+  let array = [];
+  if (indexSelected >= listItems.length -1 || checkSelected === false) {
+
+  } else {
+    for (let index = 0; index < listItems.length; index++) {
+      if (index == indexSelected) {
+        console.log('passou')
+        array.push(listItems[index + 1].outerHTML)
+        array.push(listItems[index].outerHTML)
+        index += 1;
+      } else {
+        array.push(listItems[index].outerHTML)
+      }
+      
+    }
+    console.log(array);
+    clearList()
+
+    for (const iterator of array) {
+      toDoList.innerHTML += iterator;
+
+    }
+
+  }
+
 }
 
 buttonCreateTask.addEventListener('click', createTask);
@@ -141,3 +263,7 @@ buttonClearAll.addEventListener('click', clearList);
 RemoveCompletedItems.addEventListener('click', ClearCompletedTasks);
 
 buttonSaveList.addEventListener('click', saveList);
+
+buttonMoveTop.addEventListener('click', moveItemTop);
+
+buttonMoveBottom.addEventListener('click', moveItemBottom);
