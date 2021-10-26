@@ -3,6 +3,19 @@ let buttonCreateTask = document.querySelector('#criar-tarefa');
 let toDoList = document.querySelector('#lista-tarefas');
 let buttonClearAll = document.querySelector('#apaga-tudo');
 let RemoveCompletedItems = document.querySelector('#remover-finalizados');
+let buttonSaveList = document.querySelector('#salvar-tarefas');
+
+window.onload = function() {
+  let quantityItems = parseInt(localStorage.getItem('quantityItems'));
+  console.log(quantityItems)
+  if (quantityItems > 0) {
+    for (let index = 1; index < quantityItems + 1; index++) {
+      toDoList.innerHTML += localStorage.getItem(String(index));
+
+    }
+  }
+
+} 
 
 function createTask() {
   if (textTask === '') {
@@ -39,7 +52,6 @@ function selectItem(event) {
 function taskCompleted(event) {
   let classListLi = event.target.classList;
   let completedClass = false;
-  console.log(classListLi);
 
   for (const iterator of classListLi) {
     if (iterator === 'completed') {
@@ -51,11 +63,9 @@ function taskCompleted(event) {
 
   if (completedClass === true) {
     event.target.classList.remove('completed');
-    console.log('não passou');
 
   } else {
     event.target.classList.add('completed');
-    console.log('passou');
 
   }
   
@@ -75,10 +85,28 @@ function clearList() {
 function ClearCompletedTasks() {
   let itemsCompleted = document.querySelectorAll('.completed');
   let itemsList = document.querySelector('#lista-tarefas');
+
   for (const iterator of itemsCompleted) {
     itemsList.removeChild(iterator);
 
   }
+  
+}
+
+function saveList() {
+  localStorage.clear();
+  let listItems = document.querySelectorAll('.li');
+  let itemCount = 0;
+  
+  for (const iterator of listItems) {
+    itemCount += 1;
+    let textContents = iterator.outerHTML;
+    localStorage.setItem(String(itemCount), textContents)
+    console.log(textContents);
+    
+  }
+
+  localStorage.setItem('quantityItems', itemCount);
   
 }
 
@@ -111,3 +139,5 @@ document.addEventListener('dblclick', function(event) {
 buttonClearAll.addEventListener('click', clearList);
 
 RemoveCompletedItems.addEventListener('click', ClearCompletedTasks);
+
+buttonSaveList.addEventListener('click', saveList);
