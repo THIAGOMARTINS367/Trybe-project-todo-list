@@ -1,22 +1,28 @@
-let textoTarefa = document.querySelector('#texto-tarefa');
-let buttonCriarTarefa = document.querySelector('#criar-tarefa');
-let listaTarefas = document.querySelector('#lista-tarefas');
+let textTask = document.querySelector('#texto-tarefa');
+let buttonCreateTask = document.querySelector('#criar-tarefa');
+let toDoList = document.querySelector('#lista-tarefas');
+let buttonClearAll = document.querySelector('#apaga-tudo');
+let RemoveCompletedItems = document.querySelector('#remover-finalizados');
 
 function createTask() {
-  if (textoTarefa === '') {
+  if (textTask === '') {
     
   } else {
-    listaTarefas.innerHTML += "<li class='li'>" + textoTarefa.value + "</li>";
+    toDoList.innerHTML += "<li class='li'>" + textTask.value + "</li>";
 
-    textoTarefa.value = '';
+    textTask.value = '';
     
   }
 
 }
 
 function selectItem(event) {
-  let classSelected = document.querySelectorAll('.li');
+  let resetLi = document.querySelectorAll('.li');
   let classListLi = event.target.classList;
+
+  for (const iterator of resetLi) {
+    iterator.classList.remove('selected');
+  }
 
   for (const iterator of classListLi) {
     if (iterator === 'selected') {
@@ -27,28 +33,60 @@ function selectItem(event) {
     }
     
   }
+  
+}
 
-  classListLi = event.target.classList;
-  for (const key of classSelected) {
-    key.style.backgroundColor = 'white';
+function taskCompleted(event) {
+  let classListLi = event.target.classList;
+  let completedClass = false;
+  console.log(classListLi);
+
+  for (const iterator of classListLi) {
+    if (iterator === 'completed') {
+      completedClass = true;
+
+    }
 
   }
 
-  for (const iterator of classListLi) {
-    if (iterator === 'selected') {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      
-    };
+  if (completedClass === true) {
+    event.target.classList.remove('completed');
+    console.log('não passou');
+
+  } else {
+    event.target.classList.add('completed');
+    console.log('passou');
 
   }
   
 }
 
-buttonCriarTarefa.addEventListener('click', createTask);
+function clearList() {
+  let listElements = document.querySelectorAll('.li');
+  let itemsList = document.querySelector('#lista-tarefas');
+
+  for (const iterator of listElements) {
+    itemsList.removeChild(iterator);
+
+  }
+
+}
+
+function ClearCompletedTasks() {
+  let itemsCompleted = document.querySelectorAll('.completed');
+  let itemsList = document.querySelector('#lista-tarefas');
+  for (const iterator of itemsCompleted) {
+    itemsList.removeChild(iterator);
+
+  }
+  
+}
+
+buttonCreateTask.addEventListener('click', createTask);
 
 document.addEventListener('click', function(event) {
-  let classLI = event.target.classList;
-  for (const iterator of classLI) {
+  let classLi = event.target.classList;
+  for (const iterator of classLi) {
     if (iterator === 'li') {
       selectItem(event)
 
@@ -57,3 +95,19 @@ document.addEventListener('click', function(event) {
   }
   
 });
+
+document.addEventListener('dblclick', function(event) {
+  let classLi = event.target.classList;
+  for (const iterator of classLi) {
+    if (iterator === 'li') {
+      taskCompleted(event)
+
+    };
+
+  }
+  
+});
+
+buttonClearAll.addEventListener('click', clearList);
+
+RemoveCompletedItems.addEventListener('click', ClearCompletedTasks);
