@@ -96,7 +96,7 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
   * Usando o exemplo anterior: `git push -u origin joaozinho-todo-list-project`
 
 7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-017-project-todo-list/pulls)
+  * Vá até a página de _Pull Requests_ do repositório no GitHub
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Adicione uma descrição para o _Pull Request_, um título que o identifique, e clique no botão verde _"Create pull request"_. Crie da seguinte forma: `[JOAOZINHO] Projeto To Do List`
