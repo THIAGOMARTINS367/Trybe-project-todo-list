@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-  <title>Document</title>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Minha lista de tarefas</h1>
 
-</head>
-<body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo.
+        </p>
+      </header>
 
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.</p>
+      <section class="section-lista">
+        <input type="text" id="texto-tarefa" />
 
-  </header>
+        <button id="criar-tarefa">Adicionar</button>
 
-  <section>
-    <input type="text" id="texto-tarefa">
+        <ol id="lista-tarefas"></ol>
+      </section>
 
-    <button id="criar-tarefa">Adicionar</button>
+      <section class="buttons">
+        <button id="apaga-tudo">Limpar Lista</button>
 
-    <ol id="lista-tarefas">
+        <button id="remover-finalizados">Limpar Completos</button>
 
-    </ol>
+        <button id="remover-selecionado">Remover Selecionado</button>
 
-  </section>
+        <button id="mover-cima">Mover Cima</button>
 
-  <section>
-    <button id="apaga-tudo">Limpar Lista</button>
+        <button id="mover-baixo">Mover Baixo</button>
 
-    <button id="remover-finalizados">Limpar Completos</button>
+        <button id="salvar-tarefas">Salvar Alterações</button>
+      </section>
+    </main>
 
-    <button id="remover-selecionado">Remover Selecionado</button>
-
-    <button id="mover-cima">Mover Cima</button>
-
-    <button id="mover-baixo">Mover Baixo</button>
-
-    <button id="salvar-tarefas">Salvar Alterações</button>
-
-  </section>
-  
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

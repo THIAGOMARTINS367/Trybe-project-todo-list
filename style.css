@@ -1,9 +1,56 @@
-#lista-tarefas {
-  display: block;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap');
+
+body {
+  background-color: #2fc18c;
 }
 
-#criar-tarefa {
-  display: inline-block;
+main {
+  width: 90%;
+  background-color: white;
+  border-radius: 40px;
+  position: relative;
+  left: 5%;
+  top: 40px;
+}
+
+header {
+  padding-left: 40px;
+  padding-top: 1px;
+}
+
+header h1 {
+  font-family: Roboto;
+}
+
+#funcionamento {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 100;
+  margin-top: -20px;
+}
+
+.section-lista {
+  margin-left: 40px;
+}
+
+#texto-tarefa {
+  width: 300px;
+  padding: 5px;
+}
+
+#texto-tarefa:focus {
+  outline: none;
+  border-radius: 2px;
+  border-bottom-color: rgb(22, 138, 173);
+  border: 3px solid rgb(22, 138, 173);
+  box-shadow: 0px 0px 10px rgb(22, 138, 173);
+}
+
+#lista-tarefas {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 13pt;
+  display: block;
 }
 
 .li {
@@ -16,4 +63,163 @@
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#criar-tarefa {
+  width: 100px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 20px;
+  background-color: rgb(22, 138, 173);
+  color: white;
+  display: inline-block;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+#criar-tarefa:hover {
+  background-color: rgb(76, 149, 172);
+}
+
+#criar-tarefa:active {
+  box-shadow: 0px 0px 0px black;
+}
+
+.buttons {
+  margin-left: 40px;
+  padding-bottom: 35px;
+}
+
+#apaga-tudo {
+  width: 120px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 20px;
+  background-color: rgb(155, 34, 38);
+  color: white;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+#apaga-tudo:hover {
+  background-color: rgb(153, 58, 61);
+}
+
+#apaga-tudo:active {
+  box-shadow: 0px 0px 0px black;
+}
+
+#remover-finalizados {
+  width: 160px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 20px;
+  background-color: rgb(22, 138, 173);
+  color: white;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+#remover-finalizados:hover {
+  background-color: rgb(76, 149, 172);
+}
+
+#remover-finalizados:active {
+  box-shadow: 0px 0px 0px black;
+}
+
+#remover-selecionado {
+  width: 190px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 20px;
+  background-color: rgb(155, 34, 38);
+  color: white;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+#remover-selecionado:hover {
+  background-color: rgb(153, 58, 61);
+}
+
+#remover-selecionado:active {
+  box-shadow: 0px 0px 0px black;
+}
+
+#mover-cima {
+  width: 120px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 20px;
+  background-color: rgb(255, 158, 0);
+  color: white;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+#mover-cima:hover {
+  background-color: rgb(253, 180, 63);
+}
+
+#mover-cima:active {
+  box-shadow: 0px 0px 0px black;
+}
+
+#mover-baixo {
+  width: 120px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 20px;
+  background-color: rgb(255, 158, 0);
+  color: white;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+#mover-baixo:hover {
+  background-color: rgb(253, 180, 63);
+}
+
+#mover-baixo:active {
+  box-shadow: 0px 0px 0px black;
+}
+
+#salvar-tarefas {
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 20px;
+  background-color: #2fc18c;
+  color: white;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+#salvar-tarefas:hover {
+  background-color: #6abb9d;
+}
+
+#salvar-tarefas:active {
+  box-shadow: 0px 0px 0px black;
 }

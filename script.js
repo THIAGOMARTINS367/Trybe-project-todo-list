@@ -8,27 +8,22 @@ let buttonMoveTop = document.querySelector('#mover-cima');
 let buttonMoveBottom = document.querySelector('#mover-baixo');
 let buttonRemoveSelected = document.querySelector('#remover-selecionado');
 
-window.onload = function() {
+window.onload = function () {
   let quantityItems = parseInt(localStorage.getItem('quantityItems'));
   if (quantityItems > 0) {
-    for (let index = 1; index < quantityItems + 1; index++) {
+    for (let index = 1; index < quantityItems + 1; index += 1) {
       toDoList.innerHTML += localStorage.getItem(String(index));
-
     }
   }
-
-} 
+};
 
 function createTask() {
-  if (textTask === '') {
-    
+  if (textTask.value === '') {
   } else {
-    toDoList.innerHTML += "<li class='li'>" + textTask.value + "</li>";
+    toDoList.innerHTML += "<li class='li'>" + textTask.value + '</li>';
 
     textTask.value = '';
-    
   }
-
 }
 
 let saveSelectedItem;
@@ -42,14 +37,11 @@ function selectItem(event) {
 
   for (const iterator of classListLi) {
     if (iterator === 'selected') {
-      
     } else {
       event.target.classList.add('selected');
       saveSelectedItem = event.target;
     }
-    
   }
-  
 }
 
 function taskCompleted(event) {
@@ -59,19 +51,14 @@ function taskCompleted(event) {
   for (const iterator of classListLi) {
     if (iterator === 'completed') {
       completedClass = true;
-
     }
-
   }
 
   if (completedClass === true) {
     event.target.classList.remove('completed');
-
   } else {
     event.target.classList.add('completed');
-
   }
-  
 }
 
 function clearList() {
@@ -80,9 +67,7 @@ function clearList() {
 
   for (const iterator of listElements) {
     itemsList.removeChild(iterator);
-
   }
-
 }
 
 function ClearCompletedTasks() {
@@ -91,25 +76,21 @@ function ClearCompletedTasks() {
 
   for (const iterator of itemsCompleted) {
     itemsList.removeChild(iterator);
-
   }
-  
 }
 
 function saveList() {
   localStorage.clear();
   let listItems = document.querySelectorAll('.li');
   let itemCount = 0;
-  
+
   for (const iterator of listItems) {
     itemCount += 1;
     let textContents = iterator.outerHTML;
-    localStorage.setItem(String(itemCount), textContents)
-    
+    localStorage.setItem(String(itemCount), textContents);
   }
 
   localStorage.setItem('quantityItems', itemCount);
-  
 }
 
 function moveItemTop() {
@@ -125,48 +106,37 @@ function moveItemTop() {
       if (iterator === ' ') {
         array2.push(string);
         string = '';
-
       } else {
         string += iterator;
-
       }
-
     }
     array2.push(string);
 
     for (const iterator of array2) {
       if (iterator === 'selected') {
         indexSelected = key;
-
       }
-
     }
-
   }
 
   let array = [];
   if (indexSelected === 0) {
-    
   } else {
-    for (let index = 0; index < listItems.length; index++) {
+    for (let index = 0; index < listItems.length; index += 1) {
       if (index === indexSelected - 1) {
-        array.push(listItems[index + 1].outerHTML)
-        array.push(listItems[index].outerHTML)
+        array.push(listItems[index + 1].outerHTML);
+        array.push(listItems[index].outerHTML);
         index += 1;
       } else {
-        array.push(listItems[index].outerHTML)
+        array.push(listItems[index].outerHTML);
       }
-      
     }
-    clearList()
+    clearList();
 
     for (const iterator of array) {
       toDoList.innerHTML += iterator;
-
     }
-
   }
-
 }
 
 function moveItemBottom() {
@@ -183,12 +153,9 @@ function moveItemBottom() {
       if (iterator === ' ') {
         array2.push(string);
         string = '';
-
       } else {
         string += iterator;
-
       }
-
     }
     array2.push(string);
 
@@ -196,69 +163,54 @@ function moveItemBottom() {
       if (iterator === 'selected') {
         indexSelected = key;
         checkSelected = true;
-
-      };
-
+      }
     }
-
   }
   indexSelected = parseInt(indexSelected);
 
   let array = [];
-  if (indexSelected >= listItems.length -1 || checkSelected === false) {
-
+  if (indexSelected >= listItems.length - 1 || checkSelected === false) {
   } else {
-    for (let index = 0; index < listItems.length; index++) {
-      if (index == indexSelected) {
-        array.push(listItems[index + 1].outerHTML)
-        array.push(listItems[index].outerHTML)
+    for (let index = 0; index < listItems.length; index += 1) {
+      if (index === indexSelected) {
+        array.push(listItems[index + 1].outerHTML);
+        array.push(listItems[index].outerHTML);
         index += 1;
       } else {
-        array.push(listItems[index].outerHTML)
+        array.push(listItems[index].outerHTML);
       }
-      
     }
 
-    clearList()
+    clearList();
 
     for (const iterator of array) {
       toDoList.innerHTML += iterator;
-
     }
-
   }
-
 }
 
 function removeSelected() {
   saveSelectedItem.remove();
-
 }
 
 buttonCreateTask.addEventListener('click', createTask);
 
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
   let classLi = event.target.classList;
   for (const iterator of classLi) {
     if (iterator === 'li') {
-      selectItem(event)
-
-    };
-
+      selectItem(event);
+    }
   }
-  
 });
 
-document.addEventListener('dblclick', function(event) {
+document.addEventListener('dblclick', function (event) {
   let classLi = event.target.classList;
   for (const iterator of classLi) {
     if (iterator === 'li') {
-      taskCompleted(event)
-
-    };
-
+      taskCompleted(event);
+    }
   }
-  
 });
 
 buttonClearAll.addEventListener('click', clearList);
