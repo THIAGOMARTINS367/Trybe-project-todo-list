@@ -326,6 +326,4 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 - Será verificada a presença de um elemento `button` com um id `remover-selecionado`
 
-- Será verificado que, no clicar no botão, somente o elemento selecionado é removido
-
----
+- Será verificado que, no clicar no botão, somente o elemento selecionado é removido.
