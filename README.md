@@ -9,7 +9,6 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 - [Habilidades](#habilidades)
 - [Entregáveis](#entregáveis)
   - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
 - [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
   - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
