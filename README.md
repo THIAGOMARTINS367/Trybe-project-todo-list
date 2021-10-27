@@ -10,7 +10,6 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 - [Entregáveis](#entregáveis)
   - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
   - [Desenvolvimento](#desenvolvimento)
-  - [Data de Entrega](#data-de-entrega)
 - [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
   - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
@@ -51,14 +50,7 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 ## O que deverá ser desenvolvido
 
 - Será desenvolvido uma lista de tarefas usando `HTML`, `CSS` e `JavaScript`.
-
----
-
-## Data de Entrega
-
-  - Serão `3` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `05/11/2021 - 14:00h`.
-
+  
 ---
 
 ## Instruções para entregar seu projeto:
