@@ -6,6 +6,7 @@ let RemoveCompletedItems = document.querySelector('#remover-finalizados');
 let buttonSaveList = document.querySelector('#salvar-tarefas');
 let buttonMoveTop = document.querySelector('#mover-cima');
 let buttonMoveBottom = document.querySelector('#mover-baixo');
+let buttonRemoveSelected = document.querySelector('#remover-selecionado');
 
 window.onload = function() {
   let quantityItems = parseInt(localStorage.getItem('quantityItems'));
@@ -30,6 +31,7 @@ function createTask() {
 
 }
 
+let saveSelectedItem;
 function selectItem(event) {
   let resetLi = document.querySelectorAll('.li');
   let classListLi = event.target.classList;
@@ -43,7 +45,7 @@ function selectItem(event) {
       
     } else {
       event.target.classList.add('selected');
-
+      saveSelectedItem = event.target;
     }
     
   }
@@ -194,7 +196,6 @@ function moveItemBottom() {
       if (iterator === 'selected') {
         indexSelected = key;
         checkSelected = true;
-        console.log('passsou')
 
       };
 
@@ -203,15 +204,12 @@ function moveItemBottom() {
   }
   indexSelected = parseInt(indexSelected);
 
-  console.log('indexSelected: ' + indexSelected);
-
   let array = [];
   if (indexSelected >= listItems.length -1 || checkSelected === false) {
 
   } else {
     for (let index = 0; index < listItems.length; index++) {
       if (index == indexSelected) {
-        console.log('passou')
         array.push(listItems[index + 1].outerHTML)
         array.push(listItems[index].outerHTML)
         index += 1;
@@ -220,7 +218,7 @@ function moveItemBottom() {
       }
       
     }
-    console.log(array);
+
     clearList()
 
     for (const iterator of array) {
@@ -229,6 +227,11 @@ function moveItemBottom() {
     }
 
   }
+
+}
+
+function removeSelected() {
+  saveSelectedItem.remove();
 
 }
 
@@ -267,3 +270,5 @@ buttonSaveList.addEventListener('click', saveList);
 buttonMoveTop.addEventListener('click', moveItemTop);
 
 buttonMoveBottom.addEventListener('click', moveItemBottom);
+
+buttonRemoveSelected.addEventListener('click', removeSelected);
