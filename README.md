@@ -10,7 +10,7 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 
 ## Sumário
 
-- [Habilidades](#habilidades)
+- [Habilidades](#habilidades-requeridas)
 - [O que foi desenvolvido](#o-que-foi-desenvolvido)
 - [Tecnologias usadas](#tecnologias-usadas)
 - [Antes de inicializar a aplicação](#antes-de-inicializar-a-aplicação)
@@ -18,11 +18,11 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 - [Demonstração do Projeto](#desmontração-de-uso)
 ---
 
-## Habilidades
+## Habilidades requeridas
 
-- Manipular o CSS
+- Manipular o CSS.
 
-- Manipular o Javascript
+- Manipular o Javascript.
 
 ---
 
@@ -45,13 +45,14 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 1. Clone o repositório
   * `git clone git@github.com:THIAGOMARTINS367/Trybe-project-todo-list.git`
   * Entre na pasta do repositório na sua máquina:
-    * `cd sd-017-project-pixels-art`
+    * `Trybe-project-todo-list`
 
 2. Instale as dependências
    * `npm install`
 
 3.  Inicialize o projeto
     * Utilize a extensão Live Server do VsCode ou qualquer outra para rodar o projeto em sua máquina.
+
 ---
 
 ### Linter
