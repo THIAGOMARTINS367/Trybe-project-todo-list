@@ -30,7 +30,7 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 
 - Foi implementado uma lista de tarefas, sendo possível adicionar, remover e mover tarefas da lista.
 
-- Também há a funcionalidade de salvar as alterações que ficam armazenadas no Local Storage do navegor fazendo com que lista fique salva mesmo quando a página for recarregada.
+- Também há a funcionalidade de salvar as alterações, que ficam armazenadas no Local Storage do navegor fazendo com que lista fique salva mesmo quando a página for recarregada.
 
 ---
 
